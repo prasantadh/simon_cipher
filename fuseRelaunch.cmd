@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "D:/pa1038-DO NOT DELETE/simon_32_64/test_top_module_isim_beh.exe" -prj "D:/pa1038-DO NOT DELETE/simon_32_64/test_top_module_beh.prj" "work.test_top_module" 

@@ -1,0 +1,2 @@
+vhdl work "top_module.vhd"
+vhdl work "test_top_module.vhd"
