@@ -44,9 +44,9 @@ ARCHITECTURE behavior OF test_top_module IS
          clk : IN  std_logic;
          rst : IN  std_logic;
          enc : IN  std_logic;
-         key : IN  std_logic_vector(63 downto 0);
-         d : IN  std_logic_vector(31 downto 0);
-         q : OUT  std_logic_vector(31 downto 0)
+         key : IN  std_logic_vector(127 downto 0);
+         d : IN  std_logic_vector(127 downto 0);
+         q : OUT  std_logic_vector(127 downto 0)
         );
     END COMPONENT;
     
@@ -55,11 +55,11 @@ ARCHITECTURE behavior OF test_top_module IS
    signal clk : std_logic := '0';
    signal rst : std_logic := '1';
    signal enc : std_logic := '0';
-   signal key : std_logic_vector(63 downto 0) := (others => '0');
-   signal d : std_logic_vector(31 downto 0) := (others => '0');
+   signal key : std_logic_vector(127 downto 0) := (others => '0');
+   signal d : std_logic_vector(127 downto 0) := (others => '0');
 
  	--Outputs
-   signal q : std_logic_vector(31 downto 0);
+   signal q : std_logic_vector(127 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
@@ -92,8 +92,8 @@ BEGIN
       -- hold reset state for 100 ns.
       wait for 100 ns;
 			enc <= '1';
-			key <= X"1918111009080100";
-			d <= X"65656877";
+			key <= X"0f0e0d0c0b0a09080706050403020100";
+			d   <= X"63736564207372656c6c657661727420";
 			-- assert(q = c69be9bb)
 
       wait for clk_period*10;
@@ -102,7 +102,7 @@ BEGIN
 		wait for clk_period * 100;
 			rst <= '1';
 			enc <= '0';
-			d <= X"c69be9bb";
+			d   <= X"49681b1e1e54fe3f65aa832af84e0bbc";
 		
 		wait for clk_period * 10;
 			rst <= '0';
